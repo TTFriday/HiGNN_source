@@ -1,0 +1,9 @@
+# Install torch separately using the official PyTorch instructions (see README).
+# Tested: Python 3.10.9, torch 2.5.1+cu121, Windows, NVIDIA RTX 3090.
+torch-geometric==2.8.1
+numpy==2.2.6
+pandas==2.3.3
+scikit-learn==1.7.2
+scipy==1.15.3
+openpyxl==3.1.5
+xlrd==2.0.1

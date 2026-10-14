@@ -1,4 +1,3 @@
-# HiGNN_source[README.md](https://github.com/user-attachments/files/33411428/README.md)
 # HiGNN
 
 Evidence-aware heterogeneous graph network for multi-omics link prediction.
