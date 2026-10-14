@@ -1,0 +1,1871 @@
+{
+  "scope": "checkpoint-verified standard protocol only",
+  "statistics": "descriptive mean and sample SD; no superiority/significance claim",
+  "failed_verification": [
+    {
+      "run_id": "20261013T112217154261Z_han_seed5_cb29effa222c480e9b9c9616f47be803",
+      "error": "ValueError: replayed logits are not allclose",
+      "logits_max_absolute_error": 0.0078125,
+      "included": false
+    },
+    {
+      "run_id": "20261013T112400491690Z_han_seed7_abc36bfc30a04f2a95d314fa01318fbd",
+      "error": "ValueError: replayed logits are not allclose",
+      "logits_max_absolute_error": 0.046875,
+      "included": false
+    },
+    {
+      "run_id": "20261013T112543926852Z_han_seed9_9eee4ee870df48e09915771f3b7aa31f",
+      "error": "ValueError: replayed logits are not allclose",
+      "logits_max_absolute_error": 0.0006785392761230469,
+      "included": false
+    }
+  ],
+  "groups": [
+    {
+      "model": "hignn",
+      "protocol": {
+        "code": {
+          "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "src/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "src/data/build_graph.py": "7cd05d5488e13239ededf881621bd2d789b3d7c0b2e84b6612709a579686d024",
+          "src/data/loaders.py": "d563abe1e3bdf9d2c69b4ce98f5051b7885fdc5732ea2de5b28b16f207b6cc25",
+          "src/data/splits.py": "0f7a10ef8707eb6624b63956c471ba3853985faba15da6fc25cae76477610508",
+          "src/evaluate.py": "f56e46b181ed3efd4f257cdb95723bd8e8dc0e757f683ad60847155debb3681a",
+          "src/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "src/models/baselines.py": "cf6ae163e57b9496648bffcdadbe369b0cc9a13b6999db95fe801722bd0cc473",
+          "src/models/hignn.py": "972feca27a9f5867613d7cb77fce6733d45f737763803580907cc012c4508ebe",
+          "src/train.py": "5cf0f45e4ae6df4d1ee0a1486943f6838b996d3c6b14343e4f2954aae76c84fd"
+        },
+        "graph": "7a717d2525caa1aaaf8313d2d932e001db80388da7bd7bf79f4b70b8aa0ee437",
+        "protocol": {
+          "device": "cuda:0",
+          "epochs": 150,
+          "lr": 0.005,
+          "metrics": {
+            "binary": "pooled logits on original sampled negatives (multiplicity retained)",
+            "head_tail_counts": "original negative draws; head if training positives >=20",
+            "legacy": "sigmoid; training-only ranking filter; historical NDCG@10 is untruncated DRS",
+            "macro_binary": "equal phenotype weights; original negative draws; both classes required",
+            "negative_duplicates": "saved and evaluated unchanged; sampled multiplicity retained",
+            "standard_ranking": "FP32 logits; remove train+validation; gene-index tie break; K=10,50"
+          },
+          "model_config": {
+            "dropout": 0.2,
+            "hidden": 64,
+            "layers": 2,
+            "name": "hignn",
+            "task_pooling": "attention"
+          },
+          "numeric_policy": {
+            "CUBLAS_WORKSPACE_CONFIG": null,
+            "autocast": false,
+            "cudnn_allow_tf32": true,
+            "cudnn_benchmark": false,
+            "cudnn_deterministic": false,
+            "deterministic_algorithms": false,
+            "deterministic_warn_only": false,
+            "dtype": "float32",
+            "float32_matmul_precision": "highest",
+            "matmul_allow_tf32": false
+          },
+          "split": {
+            "neg_ratio": 1,
+            "ratios": [
+              0.8,
+              0.1,
+              0.1
+            ],
+            "seeded_fresh_split": true
+          },
+          "wd": 0.0005
+        },
+        "runner": {
+          "scripts/run_enhanced.py": "229140c9686ef9f8c87b4d27ce8786479c2a52e2b4450fe82047d650ebbf231b",
+          "scripts/verify_run.py": "1b8ec10a03f8dcc8cfe07c9ead6dfd82c77bfe1d3fd9923a27ee13796d3c5925"
+        }
+      },
+      "rows": [
+        {
+          "run_id": "20261013T110930438848Z_hignn_seed0_1dad90d64f8a4ec49ee7bfb8b78a4c50",
+          "seed": 0,
+          "metrics": {
+            "binary_logits.AUPRC": 0.28082614612170176,
+            "binary_logits.AUROC": 0.7761303481987899,
+            "head_tail_binary_logits.head.AUPRC": 0.2806034531058119,
+            "head_tail_binary_logits.head.AUROC": 0.7760497585393875,
+            "head_tail_binary_logits.tail.AUPRC": 0.46004316355967834,
+            "head_tail_binary_logits.tail.AUROC": 0.808813372012709,
+            "head_tail_counts.head.n_phenotypes": 81,
+            "head_tail_counts.head.n_test_negatives": 62298,
+            "head_tail_counts.head.n_test_positives": 6231,
+            "head_tail_counts.head.prevalence": 0.09092500984984458,
+            "head_tail_counts.tail.n_phenotypes": 23,
+            "head_tail_counts.tail.n_test_negatives": 381,
+            "head_tail_counts.tail.n_test_positives": 38,
+            "head_tail_counts.tail.prevalence": 0.09069212410501193,
+            "macro_binary_logits.macro_AUPRC": 0.43930542909435116,
+            "macro_binary_logits.macro_AUROC": 0.7468180442613849,
+            "macro_binary_logits.n_pairs": 68948,
+            "macro_binary_logits.n_phenotypes": 104,
+            "ranking.macro_MRR_first": 0.19541915600845275,
+            "ranking.macro_NDCG@10": 0.08602671810007124,
+            "ranking.macro_NDCG@50": 0.10813331240381516,
+            "ranking.macro_Recall@10": 0.0600132362552296,
+            "ranking.macro_Recall@50": 0.15385010935428603,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 104,
+            "ranking.pair_Hits@10": 0.010368479821343117,
+            "ranking.pair_Hits@50": 0.02807465305471367,
+            "ranking.pair_MRR": 0.005712196627526902,
+            "sampling_counts.test.negative_draws": 62679,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51558,
+            "sampling_counts.train.negative_draws": 50135,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42702,
+            "sampling_counts.valid.negative_draws": 62664,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51571
+          }
+        },
+        {
+          "run_id": "20261013T111024367860Z_hignn_seed1_fce601b879264416b95e4afc76e5503f",
+          "seed": 1,
+          "metrics": {
+            "binary_logits.AUPRC": 0.305952664695857,
+            "binary_logits.AUROC": 0.8064596209880815,
+            "head_tail_binary_logits.head.AUPRC": 0.30518428921470137,
+            "head_tail_binary_logits.head.AUROC": 0.8059139176278809,
+            "head_tail_binary_logits.tail.AUPRC": 0.5050186834239392,
+            "head_tail_binary_logits.tail.AUROC": 0.8859998105522403,
+            "head_tail_counts.head.n_phenotypes": 77,
+            "head_tail_counts.head.n_test_negatives": 62224,
+            "head_tail_counts.head.n_test_positives": 6223,
+            "head_tail_counts.head.prevalence": 0.0909170599149707,
+            "head_tail_counts.tail.n_phenotypes": 28,
+            "head_tail_counts.tail.n_test_negatives": 459,
+            "head_tail_counts.tail.n_test_positives": 46,
+            "head_tail_counts.tail.prevalence": 0.09108910891089109,
+            "macro_binary_logits.macro_AUPRC": 0.5645947515325599,
+            "macro_binary_logits.macro_AUROC": 0.8632692107508538,
+            "macro_binary_logits.n_pairs": 68952,
+            "macro_binary_logits.n_phenotypes": 105,
+            "ranking.macro_MRR_first": 0.05849615805340738,
+            "ranking.macro_NDCG@10": 0.02187002884362828,
+            "ranking.macro_NDCG@50": 0.03201200553148304,
+            "ranking.macro_Recall@10": 0.016353777484213655,
+            "ranking.macro_Recall@50": 0.04761311235655249,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 105,
+            "ranking.pair_Hits@10": 0.0030307864093156805,
+            "ranking.pair_Hits@50": 0.01260169085978625,
+            "ranking.pair_MRR": 0.0023876153373726438,
+            "sampling_counts.test.negative_draws": 62683,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51555,
+            "sampling_counts.train.negative_draws": 50140,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42747,
+            "sampling_counts.valid.negative_draws": 62657,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51563
+          }
+        },
+        {
+          "run_id": "20261013T111118200034Z_hignn_seed2_8e76ec2a39b9492c9ad2e05b3262828d",
+          "seed": 2,
+          "metrics": {
+            "binary_logits.AUPRC": 0.2564180215726069,
+            "binary_logits.AUROC": 0.785122759069464,
+            "head_tail_binary_logits.head.AUPRC": 0.2563296027097578,
+            "head_tail_binary_logits.head.AUROC": 0.7851730645506562,
+            "head_tail_binary_logits.tail.AUPRC": 0.29029197627403447,
+            "head_tail_binary_logits.tail.AUROC": 0.7778842975206612,
+            "head_tail_counts.head.n_phenotypes": 80,
+            "head_tail_counts.head.n_test_negatives": 62134,
+            "head_tail_counts.head.n_test_positives": 6214,
+            "head_tail_counts.head.prevalence": 0.09091707145783344,
+            "head_tail_counts.tail.n_phenotypes": 31,
+            "head_tail_counts.tail.n_test_negatives": 550,
+            "head_tail_counts.tail.n_test_positives": 55,
+            "head_tail_counts.tail.prevalence": 0.09090909090909091,
+            "macro_binary_logits.macro_AUPRC": 0.37916432041806,
+            "macro_binary_logits.macro_AUROC": 0.7705264381098768,
+            "macro_binary_logits.n_pairs": 68953,
+            "macro_binary_logits.n_phenotypes": 111,
+            "ranking.macro_MRR_first": 0.07072468327852896,
+            "ranking.macro_NDCG@10": 0.023002366092225033,
+            "ranking.macro_NDCG@50": 0.04114897274084273,
+            "ranking.macro_Recall@10": 0.009176161511076369,
+            "ranking.macro_Recall@50": 0.07971631533068885,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 111,
+            "ranking.pair_Hits@10": 0.0030307864093156805,
+            "ranking.pair_Hits@50": 0.014675386824054873,
+            "ranking.pair_MRR": 0.0026844250667887493,
+            "sampling_counts.test.negative_draws": 62684,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51246,
+            "sampling_counts.train.negative_draws": 50133,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42663,
+            "sampling_counts.valid.negative_draws": 62662,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51695
+          }
+        },
+        {
+          "run_id": "20261013T111211890074Z_hignn_seed3_e9416242a73e41119391cb0a5197034d",
+          "seed": 3,
+          "metrics": {
+            "binary_logits.AUPRC": 0.27302791780903696,
+            "binary_logits.AUROC": 0.7827064320509047,
+            "head_tail_binary_logits.head.AUPRC": 0.273304354370776,
+            "head_tail_binary_logits.head.AUROC": 0.7831754489600815,
+            "head_tail_binary_logits.tail.AUPRC": 0.2515056317187261,
+            "head_tail_binary_logits.tail.AUROC": 0.6998236331569665,
+            "head_tail_counts.head.n_phenotypes": 80,
+            "head_tail_counts.head.n_test_negatives": 62275,
+            "head_tail_counts.head.n_test_positives": 6227,
+            "head_tail_counts.head.prevalence": 0.09090245540276197,
+            "head_tail_counts.tail.n_phenotypes": 25,
+            "head_tail_counts.tail.n_test_negatives": 405,
+            "head_tail_counts.tail.n_test_positives": 42,
+            "head_tail_counts.tail.prevalence": 0.09395973154362416,
+            "macro_binary_logits.macro_AUPRC": 0.3635990638877821,
+            "macro_binary_logits.macro_AUROC": 0.7217038078665282,
+            "macro_binary_logits.n_pairs": 68949,
+            "macro_binary_logits.n_phenotypes": 105,
+            "ranking.macro_MRR_first": 0.07940534872855717,
+            "ranking.macro_NDCG@10": 0.027935585689937825,
+            "ranking.macro_NDCG@50": 0.029265903894511527,
+            "ranking.macro_Recall@10": 0.012024485064098384,
+            "ranking.macro_Recall@50": 0.038371403506888606,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 105,
+            "ranking.pair_Hits@10": 0.0041473919285372465,
+            "ranking.pair_Hits@50": 0.012761205933960759,
+            "ranking.pair_MRR": 0.00278279748713306,
+            "sampling_counts.test.negative_draws": 62680,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51421,
+            "sampling_counts.train.negative_draws": 50134,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42641,
+            "sampling_counts.valid.negative_draws": 62662,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51373
+          }
+        },
+        {
+          "run_id": "20261013T111305236415Z_hignn_seed4_9571ac43a35f4f838047eabd1538a4f7",
+          "seed": 4,
+          "metrics": {
+            "binary_logits.AUPRC": 0.25208749753801274,
+            "binary_logits.AUROC": 0.7768964373000588,
+            "head_tail_binary_logits.head.AUPRC": 0.2517565116084524,
+            "head_tail_binary_logits.head.AUROC": 0.7764931430827859,
+            "head_tail_binary_logits.tail.AUPRC": 0.3124820151566952,
+            "head_tail_binary_logits.tail.AUROC": 0.8199775533108867,
+            "head_tail_counts.head.n_phenotypes": 78,
+            "head_tail_counts.head.n_test_negatives": 62092,
+            "head_tail_counts.head.n_test_positives": 6209,
+            "head_tail_counts.head.prevalence": 0.09090642889562378,
+            "head_tail_counts.tail.n_phenotypes": 32,
+            "head_tail_counts.tail.n_test_negatives": 594,
+            "head_tail_counts.tail.n_test_positives": 60,
+            "head_tail_counts.tail.prevalence": 0.09174311926605505,
+            "macro_binary_logits.macro_AUPRC": 0.3902526820066724,
+            "macro_binary_logits.macro_AUROC": 0.7653573656624372,
+            "macro_binary_logits.n_pairs": 68955,
+            "macro_binary_logits.n_phenotypes": 110,
+            "ranking.macro_MRR_first": 0.10173974757540032,
+            "ranking.macro_NDCG@10": 0.05062203820833423,
+            "ranking.macro_NDCG@50": 0.06968305334036573,
+            "ranking.macro_Recall@10": 0.044690304985739074,
+            "ranking.macro_Recall@50": 0.1031110411326017,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 110,
+            "ranking.pair_Hits@10": 0.004466422076886266,
+            "ranking.pair_Hits@50": 0.018184718455894082,
+            "ranking.pair_MRR": 0.0031390240730789524,
+            "sampling_counts.test.negative_draws": 62686,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51577,
+            "sampling_counts.train.negative_draws": 50135,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42572,
+            "sampling_counts.valid.negative_draws": 62660,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51577
+          }
+        },
+        {
+          "run_id": "20261013T111358795878Z_hignn_seed5_2a524917601542e88ad8fcb2066e9e1a",
+          "seed": 5,
+          "metrics": {
+            "binary_logits.AUPRC": 0.2894959871291704,
+            "binary_logits.AUROC": 0.7917655272137083,
+            "head_tail_binary_logits.head.AUPRC": 0.2890031570967696,
+            "head_tail_binary_logits.head.AUROC": 0.7917103841551343,
+            "head_tail_binary_logits.tail.AUPRC": 0.47860380459111085,
+            "head_tail_binary_logits.tail.AUROC": 0.7985681744223886,
+            "head_tail_counts.head.n_phenotypes": 78,
+            "head_tail_counts.head.n_test_negatives": 62245,
+            "head_tail_counts.head.n_test_positives": 6220,
+            "head_tail_counts.head.prevalence": 0.09084933907836121,
+            "head_tail_counts.tail.n_phenotypes": 28,
+            "head_tail_counts.tail.n_test_negatives": 439,
+            "head_tail_counts.tail.n_test_positives": 49,
+            "head_tail_counts.tail.prevalence": 0.10040983606557377,
+            "macro_binary_logits.macro_AUPRC": 0.5169308135384669,
+            "macro_binary_logits.macro_AUROC": 0.7888205543857594,
+            "macro_binary_logits.n_pairs": 68953,
+            "macro_binary_logits.n_phenotypes": 106,
+            "ranking.macro_MRR_first": 0.15731211607491855,
+            "ranking.macro_NDCG@10": 0.07372737658177601,
+            "ranking.macro_NDCG@50": 0.10267904328395545,
+            "ranking.macro_Recall@10": 0.07029228863963304,
+            "ranking.macro_Recall@50": 0.1705996335513973,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 106,
+            "ranking.pair_Hits@10": 0.009092359227947041,
+            "ranking.pair_Hits@50": 0.027436592758015632,
+            "ranking.pair_MRR": 0.004889214026282,
+            "sampling_counts.test.negative_draws": 62684,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51312,
+            "sampling_counts.train.negative_draws": 50134,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42597,
+            "sampling_counts.valid.negative_draws": 62661,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51307
+          }
+        },
+        {
+          "run_id": "20261013T111452872362Z_hignn_seed6_53f93684cf1a4bb09c24a9e08478e07e",
+          "seed": 6,
+          "metrics": {
+            "binary_logits.AUPRC": 0.2650715741650258,
+            "binary_logits.AUROC": 0.7726507842792248,
+            "head_tail_binary_logits.head.AUPRC": 0.26474342643560866,
+            "head_tail_binary_logits.head.AUROC": 0.7728111896275531,
+            "head_tail_binary_logits.tail.AUPRC": 0.42296741382194447,
+            "head_tail_binary_logits.tail.AUROC": 0.7829602924240149,
+            "head_tail_counts.head.n_phenotypes": 78,
+            "head_tail_counts.head.n_test_negatives": 62052,
+            "head_tail_counts.head.n_test_positives": 6206,
+            "head_tail_counts.head.prevalence": 0.09091974567083712,
+            "head_tail_counts.tail.n_phenotypes": 33,
+            "head_tail_counts.tail.n_test_negatives": 634,
+            "head_tail_counts.tail.n_test_positives": 63,
+            "head_tail_counts.tail.prevalence": 0.09038737446197992,
+            "macro_binary_logits.macro_AUPRC": 0.43861652153379826,
+            "macro_binary_logits.macro_AUROC": 0.7637774952481922,
+            "macro_binary_logits.n_pairs": 68955,
+            "macro_binary_logits.n_phenotypes": 111,
+            "ranking.macro_MRR_first": 0.0903666902078865,
+            "ranking.macro_NDCG@10": 0.040709087877800886,
+            "ranking.macro_NDCG@50": 0.059945411215888283,
+            "ranking.macro_Recall@10": 0.034537764995450006,
+            "ranking.macro_Recall@50": 0.09674084672309032,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 111,
+            "ranking.pair_Hits@10": 0.006699633115329399,
+            "ranking.pair_Hits@50": 0.0218535651619078,
+            "ranking.pair_MRR": 0.003258088533913167,
+            "sampling_counts.test.negative_draws": 62686,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51657,
+            "sampling_counts.train.negative_draws": 50124,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42601,
+            "sampling_counts.valid.negative_draws": 62664,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51677
+          }
+        },
+        {
+          "run_id": "20261013T111551267618Z_hignn_seed7_0ebe5a8c07fd46da9aa9b239f006be6c",
+          "seed": 7,
+          "metrics": {
+            "binary_logits.AUPRC": 0.3071316977221762,
+            "binary_logits.AUROC": 0.7797927867145522,
+            "head_tail_binary_logits.head.AUPRC": 0.30756590230391356,
+            "head_tail_binary_logits.head.AUROC": 0.780544042707043,
+            "head_tail_binary_logits.tail.AUPRC": 0.3537304699516372,
+            "head_tail_binary_logits.tail.AUROC": 0.7009271331305229,
+            "head_tail_counts.head.n_phenotypes": 78,
+            "head_tail_counts.head.n_test_negatives": 62148,
+            "head_tail_counts.head.n_test_positives": 6217,
+            "head_tail_counts.head.prevalence": 0.09093834564470124,
+            "head_tail_counts.tail.n_phenotypes": 27,
+            "head_tail_counts.tail.n_test_negatives": 531,
+            "head_tail_counts.tail.n_test_positives": 52,
+            "head_tail_counts.tail.prevalence": 0.08919382504288165,
+            "macro_binary_logits.macro_AUPRC": 0.42504096482703674,
+            "macro_binary_logits.macro_AUROC": 0.7208100451166608,
+            "macro_binary_logits.n_pairs": 68948,
+            "macro_binary_logits.n_phenotypes": 105,
+            "ranking.macro_MRR_first": 0.11098232693349872,
+            "ranking.macro_NDCG@10": 0.05070467155073252,
+            "ranking.macro_NDCG@50": 0.07713949559167509,
+            "ranking.macro_Recall@10": 0.03551501891587781,
+            "ranking.macro_Recall@50": 0.12619696632934263,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 105,
+            "ranking.pair_Hits@10": 0.007497208486201946,
+            "ranking.pair_Hits@50": 0.026479502312968577,
+            "ranking.pair_MRR": 0.003940731662848544,
+            "sampling_counts.test.negative_draws": 62679,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51322,
+            "sampling_counts.train.negative_draws": 50131,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42578,
+            "sampling_counts.valid.negative_draws": 62661,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51298
+          }
+        },
+        {
+          "run_id": "20261013T111644692443Z_hignn_seed8_f8de2a7654524759ac4c49a6395e0c3d",
+          "seed": 8,
+          "metrics": {
+            "binary_logits.AUPRC": 0.28665268800662586,
+            "binary_logits.AUROC": 0.7882668986340554,
+            "head_tail_binary_logits.head.AUPRC": 0.28664341875057087,
+            "head_tail_binary_logits.head.AUROC": 0.788455646465115,
+            "head_tail_binary_logits.tail.AUPRC": 0.3609607217104246,
+            "head_tail_binary_logits.tail.AUROC": 0.7741395793499044,
+            "head_tail_counts.head.n_phenotypes": 79,
+            "head_tail_counts.head.n_test_negatives": 62158,
+            "head_tail_counts.head.n_test_positives": 6221,
+            "head_tail_counts.head.prevalence": 0.09097822430863277,
+            "head_tail_counts.tail.n_phenotypes": 24,
+            "head_tail_counts.tail.n_test_negatives": 523,
+            "head_tail_counts.tail.n_test_positives": 48,
+            "head_tail_counts.tail.prevalence": 0.0840630472854641,
+            "macro_binary_logits.macro_AUPRC": 0.4210718887229168,
+            "macro_binary_logits.macro_AUROC": 0.7581531344335453,
+            "macro_binary_logits.n_pairs": 68950,
+            "macro_binary_logits.n_phenotypes": 103,
+            "ranking.macro_MRR_first": 0.08360126088072135,
+            "ranking.macro_NDCG@10": 0.027718706547415876,
+            "ranking.macro_NDCG@50": 0.04097369559543627,
+            "ranking.macro_Recall@10": 0.010902980186148756,
+            "ranking.macro_Recall@50": 0.06164333756187713,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 103,
+            "ranking.pair_Hits@10": 0.0031903014834901897,
+            "ranking.pair_Hits@50": 0.01579199234327644,
+            "ranking.pair_MRR": 0.002866931866159816,
+            "sampling_counts.test.negative_draws": 62681,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51196,
+            "sampling_counts.train.negative_draws": 50135,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42679,
+            "sampling_counts.valid.negative_draws": 62664,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51532
+          }
+        },
+        {
+          "run_id": "20261013T111738426773Z_hignn_seed9_bb4ad2e0ffc74706a00d5ab423feb34d",
+          "seed": 9,
+          "metrics": {
+            "binary_logits.AUPRC": 0.2613362124837041,
+            "binary_logits.AUROC": 0.7806086770713696,
+            "head_tail_binary_logits.head.AUPRC": 0.2613433286837592,
+            "head_tail_binary_logits.head.AUROC": 0.7808092354781158,
+            "head_tail_binary_logits.tail.AUPRC": 0.319079721508576,
+            "head_tail_binary_logits.tail.AUROC": 0.7524665257223397,
+            "head_tail_counts.head.n_phenotypes": 76,
+            "head_tail_counts.head.n_test_negatives": 62166,
+            "head_tail_counts.head.n_test_positives": 6214,
+            "head_tail_counts.head.prevalence": 0.0908745247148289,
+            "head_tail_counts.tail.n_phenotypes": 32,
+            "head_tail_counts.tail.n_test_negatives": 516,
+            "head_tail_counts.tail.n_test_positives": 55,
+            "head_tail_counts.tail.prevalence": 0.09632224168126094,
+            "macro_binary_logits.macro_AUPRC": 0.38513940626359283,
+            "macro_binary_logits.macro_AUROC": 0.741574120508494,
+            "macro_binary_logits.n_pairs": 68951,
+            "macro_binary_logits.n_phenotypes": 108,
+            "ranking.macro_MRR_first": 0.16950383395271476,
+            "ranking.macro_NDCG@10": 0.06278164525512868,
+            "ranking.macro_NDCG@50": 0.07168144430560147,
+            "ranking.macro_Recall@10": 0.04731701355403886,
+            "ranking.macro_Recall@50": 0.08453845468470887,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 108,
+            "ranking.pair_Hits@10": 0.00622108789280587,
+            "ranking.pair_Hits@50": 0.01834423353006859,
+            "ranking.pair_MRR": 0.0045249471422901906,
+            "sampling_counts.test.negative_draws": 62682,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51541,
+            "sampling_counts.train.negative_draws": 50134,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42484,
+            "sampling_counts.valid.negative_draws": 62666,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51532
+          }
+        }
+      ],
+      "n_runs": 10,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "summary": {
+        "binary_logits.AUPRC": {
+          "mean": 0.2778000407243918,
+          "sample_sd": 0.019582896327966188
+        },
+        "binary_logits.AUROC": {
+          "mean": 0.7840400271520209,
+          "sample_sd": 0.009753977711926903
+        },
+        "head_tail_binary_logits.head.AUPRC": {
+          "mean": 0.27764774442801216,
+          "sample_sd": 0.019573226534381875
+        },
+        "head_tail_binary_logits.head.AUROC": {
+          "mean": 0.7841135831193753,
+          "sample_sd": 0.009593533037669768
+        },
+        "head_tail_binary_logits.tail.AUPRC": {
+          "mean": 0.3754683601716766,
+          "sample_sd": 0.08646194005912752
+        },
+        "head_tail_binary_logits.tail.AUROC": {
+          "mean": 0.7801560371602634,
+          "sample_sd": 0.055272409208415633
+        },
+        "head_tail_counts.head.n_phenotypes": {
+          "mean": 78.5,
+          "sample_sd": 1.509230856356236
+        },
+        "head_tail_counts.head.n_test_negatives": {
+          "mean": 62179.2,
+          "sample_sd": 79.61825586300334
+        },
+        "head_tail_counts.head.n_test_positives": {
+          "mean": 6218.2,
+          "sample_sd": 7.786027371016764
+        },
+        "head_tail_counts.head.prevalence": {
+          "mean": 0.09091282049383957,
+          "sample_sd": 3.465146881711603e-05
+        },
+        "head_tail_counts.tail.n_phenotypes": {
+          "mean": 28.3,
+          "sample_sd": 3.591656999213594
+        },
+        "head_tail_counts.tail.n_test_negatives": {
+          "mean": 503.2,
+          "sample_sd": 81.32486294690777
+        },
+        "head_tail_counts.tail.n_test_positives": {
+          "mean": 50.8,
+          "sample_sd": 7.786027371016764
+        },
+        "head_tail_counts.tail.prevalence": {
+          "mean": 0.09187694992718336,
+          "sample_sd": 0.004350772345452
+        },
+        "macro_binary_logits.macro_AUPRC": {
+          "mean": 0.4323715841825237,
+          "sample_sd": 0.06365469417551102
+        },
+        "macro_binary_logits.macro_AUROC": {
+          "mean": 0.7640810216343732,
+          "sample_sd": 0.04082690072476671
+        },
+        "macro_binary_logits.n_pairs": {
+          "mean": 68951.4,
+          "sample_sd": 2.6331223544175333
+        },
+        "macro_binary_logits.n_phenotypes": {
+          "mean": 106.8,
+          "sample_sd": 2.973961069759395
+        },
+        "ranking.macro_MRR_first": {
+          "mean": 0.11175513216940865,
+          "sample_sd": 0.04634119339624082
+        },
+        "ranking.macro_NDCG@10": {
+          "mean": 0.04650982247470506,
+          "sample_sd": 0.022343620398461453
+        },
+        "ranking.macro_NDCG@50": {
+          "mean": 0.06326623379035748,
+          "sample_sd": 0.027890441621948123
+        },
+        "ranking.macro_Recall@10": {
+          "mean": 0.034082303159150555,
+          "sample_sd": 0.021684527480941646
+        },
+        "ranking.macro_Recall@50": {
+          "mean": 0.09623812205314339,
+          "sample_sd": 0.04360606186635627
+        },
+        "ranking.n_test_pairs": {
+          "mean": 6269,
+          "sample_sd": 0.0
+        },
+        "ranking.n_test_phenotypes": {
+          "mean": 106.8,
+          "sample_sd": 2.973961069759395
+        },
+        "ranking.pair_Hits@10": {
+          "mean": 0.005774445685117244,
+          "sample_sd": 0.0026295000796241782
+        },
+        "ranking.pair_Hits@50": {
+          "mean": 0.01962035412346467,
+          "sample_sd": 0.005997333103458722
+        },
+        "ranking.pair_MRR": {
+          "mean": 0.0036185971823394026,
+          "sample_sd": 0.0011022390973385902
+        },
+        "sampling_counts.test.negative_draws": {
+          "mean": 62682.4,
+          "sample_sd": 2.6331223544175333
+        },
+        "sampling_counts.test.positive_pairs": {
+          "mean": 6269,
+          "sample_sd": 0.0
+        },
+        "sampling_counts.test.unique_negative_pairs": {
+          "mean": 51438.5,
+          "sample_sd": 160.21738704370105
+        },
+        "sampling_counts.train.negative_draws": {
+          "mean": 50133.5,
+          "sample_sd": 4.034572812303401
+        },
+        "sampling_counts.train.positive_pairs": {
+          "mean": 50140,
+          "sample_sd": 0.0
+        },
+        "sampling_counts.train.unique_negative_pairs": {
+          "mean": 42626.4,
+          "sample_sd": 75.76894702537005
+        },
+        "sampling_counts.valid.negative_draws": {
+          "mean": 62662.1,
+          "sample_sd": 2.5582111805799856
+        },
+        "sampling_counts.valid.positive_pairs": {
+          "mean": 6267,
+          "sample_sd": 0.0
+        },
+        "sampling_counts.valid.unique_negative_pairs": {
+          "mean": 51512.5,
+          "sample_sd": 141.0124108013192
+        }
+      }
+    },
+    {
+      "model": "han",
+      "protocol": {
+        "code": {
+          "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "src/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "src/data/build_graph.py": "7cd05d5488e13239ededf881621bd2d789b3d7c0b2e84b6612709a579686d024",
+          "src/data/loaders.py": "d563abe1e3bdf9d2c69b4ce98f5051b7885fdc5732ea2de5b28b16f207b6cc25",
+          "src/data/splits.py": "0f7a10ef8707eb6624b63956c471ba3853985faba15da6fc25cae76477610508",
+          "src/evaluate.py": "f56e46b181ed3efd4f257cdb95723bd8e8dc0e757f683ad60847155debb3681a",
+          "src/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "src/models/baselines.py": "cf6ae163e57b9496648bffcdadbe369b0cc9a13b6999db95fe801722bd0cc473",
+          "src/models/hignn.py": "972feca27a9f5867613d7cb77fce6733d45f737763803580907cc012c4508ebe",
+          "src/train.py": "5cf0f45e4ae6df4d1ee0a1486943f6838b996d3c6b14343e4f2954aae76c84fd"
+        },
+        "graph": "7a717d2525caa1aaaf8313d2d932e001db80388da7bd7bf79f4b70b8aa0ee437",
+        "protocol": {
+          "device": "cuda:0",
+          "epochs": 150,
+          "lr": 0.005,
+          "metrics": {
+            "binary": "pooled logits on original sampled negatives (multiplicity retained)",
+            "head_tail_counts": "original negative draws; head if training positives >=20",
+            "legacy": "sigmoid; training-only ranking filter; historical NDCG@10 is untruncated DRS",
+            "macro_binary": "equal phenotype weights; original negative draws; both classes required",
+            "negative_duplicates": "saved and evaluated unchanged; sampled multiplicity retained",
+            "standard_ranking": "FP32 logits; remove train+validation; gene-index tie break; K=10,50"
+          },
+          "model_config": {
+            "dropout": 0.2,
+            "hidden": 64,
+            "layers": 2,
+            "name": "han",
+            "task_pooling": null
+          },
+          "numeric_policy": {
+            "CUBLAS_WORKSPACE_CONFIG": null,
+            "autocast": false,
+            "cudnn_allow_tf32": true,
+            "cudnn_benchmark": false,
+            "cudnn_deterministic": false,
+            "deterministic_algorithms": false,
+            "deterministic_warn_only": false,
+            "dtype": "float32",
+            "float32_matmul_precision": "highest",
+            "matmul_allow_tf32": false
+          },
+          "split": {
+            "neg_ratio": 1,
+            "ratios": [
+              0.8,
+              0.1,
+              0.1
+            ],
+            "seeded_fresh_split": true
+          },
+          "wd": 0.0005
+        },
+        "runner": {
+          "scripts/run_enhanced.py": "229140c9686ef9f8c87b4d27ce8786479c2a52e2b4450fe82047d650ebbf231b",
+          "scripts/verify_run.py": "1b8ec10a03f8dcc8cfe07c9ead6dfd82c77bfe1d3fd9923a27ee13796d3c5925"
+        }
+      },
+      "rows": [
+        {
+          "run_id": "20261013T111831959330Z_han_seed0_26eabede1be44c3080af85fac4922445",
+          "seed": 0,
+          "metrics": {
+            "binary_logits.AUPRC": 0.13957058163862132,
+            "binary_logits.AUROC": 0.6147738024254827,
+            "head_tail_binary_logits.head.AUPRC": 0.1397194123103457,
+            "head_tail_binary_logits.head.AUROC": 0.6151495654175769,
+            "head_tail_binary_logits.tail.AUPRC": 0.13804223404381522,
+            "head_tail_binary_logits.tail.AUROC": 0.5254178753971543,
+            "head_tail_counts.head.n_phenotypes": 81,
+            "head_tail_counts.head.n_test_negatives": 62298,
+            "head_tail_counts.head.n_test_positives": 6231,
+            "head_tail_counts.head.prevalence": 0.09092500984984458,
+            "head_tail_counts.tail.n_phenotypes": 23,
+            "head_tail_counts.tail.n_test_negatives": 381,
+            "head_tail_counts.tail.n_test_positives": 38,
+            "head_tail_counts.tail.prevalence": 0.09069212410501193,
+            "macro_binary_logits.macro_AUPRC": 0.27510504141263536,
+            "macro_binary_logits.macro_AUROC": 0.5809039988182557,
+            "macro_binary_logits.n_pairs": 68948,
+            "macro_binary_logits.n_phenotypes": 104,
+            "ranking.macro_MRR_first": 0.107206156216524,
+            "ranking.macro_NDCG@10": 0.05208230846684478,
+            "ranking.macro_NDCG@50": 0.06518902683589753,
+            "ranking.macro_Recall@10": 0.043211369897877557,
+            "ranking.macro_Recall@50": 0.08050652593700688,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 104,
+            "ranking.pair_Hits@10": 0.007018663263678417,
+            "ranking.pair_Hits@50": 0.01962035412346467,
+            "ranking.pair_MRR": 0.0033959769389735805,
+            "sampling_counts.test.negative_draws": 62679,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51558,
+            "sampling_counts.train.negative_draws": 50135,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42702,
+            "sampling_counts.valid.negative_draws": 62664,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51571
+          }
+        },
+        {
+          "run_id": "20261013T111916867039Z_han_seed1_bf51844b645d46a589e553a0ce268821",
+          "seed": 1,
+          "metrics": {
+            "binary_logits.AUPRC": 0.25305754576019013,
+            "binary_logits.AUROC": 0.7539048448086895,
+            "head_tail_binary_logits.head.AUPRC": 0.2531141752480762,
+            "head_tail_binary_logits.head.AUROC": 0.7542864604249524,
+            "head_tail_binary_logits.tail.AUPRC": 0.3216753530472617,
+            "head_tail_binary_logits.tail.AUROC": 0.7058823529411764,
+            "head_tail_counts.head.n_phenotypes": 77,
+            "head_tail_counts.head.n_test_negatives": 62224,
+            "head_tail_counts.head.n_test_positives": 6223,
+            "head_tail_counts.head.prevalence": 0.0909170599149707,
+            "head_tail_counts.tail.n_phenotypes": 28,
+            "head_tail_counts.tail.n_test_negatives": 459,
+            "head_tail_counts.tail.n_test_positives": 46,
+            "head_tail_counts.tail.prevalence": 0.09108910891089109,
+            "macro_binary_logits.macro_AUPRC": 0.3464250749181221,
+            "macro_binary_logits.macro_AUROC": 0.7033468965843904,
+            "macro_binary_logits.n_pairs": 68952,
+            "macro_binary_logits.n_phenotypes": 105,
+            "ranking.macro_MRR_first": 0.058780647864739695,
+            "ranking.macro_NDCG@10": 0.033324449764629824,
+            "ranking.macro_NDCG@50": 0.05000367828596011,
+            "ranking.macro_Recall@10": 0.027385357547604933,
+            "ranking.macro_Recall@50": 0.0813815061440461,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 105,
+            "ranking.pair_Hits@10": 0.005423512521933323,
+            "ranking.pair_Hits@50": 0.017227628010847026,
+            "ranking.pair_MRR": 0.002505804415144389,
+            "sampling_counts.test.negative_draws": 62683,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51555,
+            "sampling_counts.train.negative_draws": 50140,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42747,
+            "sampling_counts.valid.negative_draws": 62657,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51563
+          }
+        },
+        {
+          "run_id": "20261013T112001524473Z_han_seed2_fd9ab286432044b3bb9289f9b77dc09d",
+          "seed": 2,
+          "metrics": {
+            "binary_logits.AUPRC": 0.2615462509119487,
+            "binary_logits.AUROC": 0.7856955274572918,
+            "head_tail_binary_logits.head.AUPRC": 0.26189482918178497,
+            "head_tail_binary_logits.head.AUROC": 0.7863189353752905,
+            "head_tail_binary_logits.tail.AUPRC": 0.3290327931121298,
+            "head_tail_binary_logits.tail.AUROC": 0.7048264462809918,
+            "head_tail_counts.head.n_phenotypes": 80,
+            "head_tail_counts.head.n_test_negatives": 62134,
+            "head_tail_counts.head.n_test_positives": 6214,
+            "head_tail_counts.head.prevalence": 0.09091707145783344,
+            "head_tail_counts.tail.n_phenotypes": 31,
+            "head_tail_counts.tail.n_test_negatives": 550,
+            "head_tail_counts.tail.n_test_positives": 55,
+            "head_tail_counts.tail.prevalence": 0.09090909090909091,
+            "macro_binary_logits.macro_AUPRC": 0.39695036567815306,
+            "macro_binary_logits.macro_AUROC": 0.729819356339532,
+            "macro_binary_logits.n_pairs": 68953,
+            "macro_binary_logits.n_phenotypes": 111,
+            "ranking.macro_MRR_first": 0.07353374970141827,
+            "ranking.macro_NDCG@10": 0.029889788900343373,
+            "ranking.macro_NDCG@50": 0.0645121952524984,
+            "ranking.macro_Recall@10": 0.02071834604563193,
+            "ranking.macro_Recall@50": 0.1384301607247438,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 111,
+            "ranking.pair_Hits@10": 0.004466422076886266,
+            "ranking.pair_Hits@50": 0.021055989791035252,
+            "ranking.pair_MRR": 0.0028386172812704196,
+            "sampling_counts.test.negative_draws": 62684,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51246,
+            "sampling_counts.train.negative_draws": 50133,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42663,
+            "sampling_counts.valid.negative_draws": 62662,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51695
+          }
+        },
+        {
+          "run_id": "20261013T112046323715Z_han_seed3_edadc215bbdf46fd9b501121c9aa11af",
+          "seed": 3,
+          "metrics": {
+            "binary_logits.AUPRC": 0.14714593429589307,
+            "binary_logits.AUROC": 0.6311198423925918,
+            "head_tail_binary_logits.head.AUPRC": 0.14744743955151537,
+            "head_tail_binary_logits.head.AUROC": 0.6316790163554591,
+            "head_tail_binary_logits.tail.AUPRC": 0.1121570661050226,
+            "head_tail_binary_logits.tail.AUROC": 0.5474426807760141,
+            "head_tail_counts.head.n_phenotypes": 80,
+            "head_tail_counts.head.n_test_negatives": 62275,
+            "head_tail_counts.head.n_test_positives": 6227,
+            "head_tail_counts.head.prevalence": 0.09090245540276197,
+            "head_tail_counts.tail.n_phenotypes": 25,
+            "head_tail_counts.tail.n_test_negatives": 405,
+            "head_tail_counts.tail.n_test_positives": 42,
+            "head_tail_counts.tail.prevalence": 0.09395973154362416,
+            "macro_binary_logits.macro_AUPRC": 0.30490077123758463,
+            "macro_binary_logits.macro_AUROC": 0.5980009314522039,
+            "macro_binary_logits.n_pairs": 68949,
+            "macro_binary_logits.n_phenotypes": 105,
+            "ranking.macro_MRR_first": 0.046333744426000516,
+            "ranking.macro_NDCG@10": 0.00980345466167351,
+            "ranking.macro_NDCG@50": 0.05988911114388646,
+            "ranking.macro_Recall@10": 0.0042425378789626295,
+            "ranking.macro_Recall@50": 0.12479113621814171,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 105,
+            "ranking.pair_Hits@10": 0.0015951507417450949,
+            "ranking.pair_Hits@50": 0.023927261126176425,
+            "ranking.pair_MRR": 0.0021984030880865912,
+            "sampling_counts.test.negative_draws": 62680,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51421,
+            "sampling_counts.train.negative_draws": 50134,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42641,
+            "sampling_counts.valid.negative_draws": 62662,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51373
+          }
+        },
+        {
+          "run_id": "20261013T112131902157Z_han_seed4_df134308938947849c3df01544e6e17b",
+          "seed": 4,
+          "metrics": {
+            "binary_logits.AUPRC": 0.16255849733099956,
+            "binary_logits.AUROC": 0.6443713106222744,
+            "head_tail_binary_logits.head.AUPRC": 0.16063039614423008,
+            "head_tail_binary_logits.head.AUROC": 0.6436884092741212,
+            "head_tail_binary_logits.tail.AUPRC": 0.36794773392194335,
+            "head_tail_binary_logits.tail.AUROC": 0.6846240179573513,
+            "head_tail_counts.head.n_phenotypes": 78,
+            "head_tail_counts.head.n_test_negatives": 62092,
+            "head_tail_counts.head.n_test_positives": 6209,
+            "head_tail_counts.head.prevalence": 0.09090642889562378,
+            "head_tail_counts.tail.n_phenotypes": 32,
+            "head_tail_counts.tail.n_test_negatives": 594,
+            "head_tail_counts.tail.n_test_positives": 60,
+            "head_tail_counts.tail.prevalence": 0.09174311926605505,
+            "macro_binary_logits.macro_AUPRC": 0.40569862765638665,
+            "macro_binary_logits.macro_AUROC": 0.6860602395268408,
+            "macro_binary_logits.n_pairs": 68955,
+            "macro_binary_logits.n_phenotypes": 110,
+            "ranking.macro_MRR_first": 0.09538463473562145,
+            "ranking.macro_NDCG@10": 0.04647530297970182,
+            "ranking.macro_NDCG@50": 0.06395507928231378,
+            "ranking.macro_Recall@10": 0.039919143446753826,
+            "ranking.macro_Recall@50": 0.09802398425935327,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 110,
+            "ranking.pair_Hits@10": 0.005742542670282342,
+            "ranking.pair_Hits@50": 0.019141808900941137,
+            "ranking.pair_MRR": 0.00331624480106499,
+            "sampling_counts.test.negative_draws": 62686,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51577,
+            "sampling_counts.train.negative_draws": 50135,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42572,
+            "sampling_counts.valid.negative_draws": 62660,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51577
+          }
+        },
+        {
+          "run_id": "20261013T112308789489Z_han_seed6_1dc0a4fe54ce44c5a4be373941f41082",
+          "seed": 6,
+          "metrics": {
+            "binary_logits.AUPRC": 0.2535181512957513,
+            "binary_logits.AUROC": 0.7539371476203838,
+            "head_tail_binary_logits.head.AUPRC": 0.25359516863360737,
+            "head_tail_binary_logits.head.AUROC": 0.7545196725526576,
+            "head_tail_binary_logits.tail.AUPRC": 0.34738738836719907,
+            "head_tail_binary_logits.tail.AUROC": 0.7053227179410145,
+            "head_tail_counts.head.n_phenotypes": 78,
+            "head_tail_counts.head.n_test_negatives": 62052,
+            "head_tail_counts.head.n_test_positives": 6206,
+            "head_tail_counts.head.prevalence": 0.09091974567083712,
+            "head_tail_counts.tail.n_phenotypes": 33,
+            "head_tail_counts.tail.n_test_negatives": 634,
+            "head_tail_counts.tail.n_test_positives": 63,
+            "head_tail_counts.tail.prevalence": 0.09038737446197992,
+            "macro_binary_logits.macro_AUPRC": 0.39684423009394043,
+            "macro_binary_logits.macro_AUROC": 0.7191763189505913,
+            "macro_binary_logits.n_pairs": 68955,
+            "macro_binary_logits.n_phenotypes": 111,
+            "ranking.macro_MRR_first": 0.055554786159451454,
+            "ranking.macro_NDCG@10": 0.025837270556353847,
+            "ranking.macro_NDCG@50": 0.06289097948745521,
+            "ranking.macro_Recall@10": 0.03374390576715055,
+            "ranking.macro_Recall@50": 0.10811669030366262,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 111,
+            "ranking.pair_Hits@10": 0.003987876854362737,
+            "ranking.pair_Hits@50": 0.025841442016270536,
+            "ranking.pair_MRR": 0.002696608225339256,
+            "sampling_counts.test.negative_draws": 62686,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51657,
+            "sampling_counts.train.negative_draws": 50124,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42601,
+            "sampling_counts.valid.negative_draws": 62664,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51677
+          }
+        },
+        {
+          "run_id": "20261013T112452157212Z_han_seed8_9e21358097894472a890ea218bd3125a",
+          "seed": 8,
+          "metrics": {
+            "binary_logits.AUPRC": 0.14683988886401003,
+            "binary_logits.AUROC": 0.6309825695177578,
+            "head_tail_binary_logits.head.AUPRC": 0.1469999983807909,
+            "head_tail_binary_logits.head.AUROC": 0.631288153834849,
+            "head_tail_binary_logits.tail.AUPRC": 0.1923177384033141,
+            "head_tail_binary_logits.tail.AUROC": 0.6085484384958573,
+            "head_tail_counts.head.n_phenotypes": 79,
+            "head_tail_counts.head.n_test_negatives": 62158,
+            "head_tail_counts.head.n_test_positives": 6221,
+            "head_tail_counts.head.prevalence": 0.09097822430863277,
+            "head_tail_counts.tail.n_phenotypes": 24,
+            "head_tail_counts.tail.n_test_negatives": 523,
+            "head_tail_counts.tail.n_test_positives": 48,
+            "head_tail_counts.tail.prevalence": 0.0840630472854641,
+            "macro_binary_logits.macro_AUPRC": 0.34903842935555895,
+            "macro_binary_logits.macro_AUROC": 0.6502780212965195,
+            "macro_binary_logits.n_pairs": 68950,
+            "macro_binary_logits.n_phenotypes": 103,
+            "ranking.macro_MRR_first": 0.02772694879041678,
+            "ranking.macro_NDCG@10": 0.007613648386859496,
+            "ranking.macro_NDCG@50": 0.010523080993651136,
+            "ranking.macro_Recall@10": 0.00013871583981327445,
+            "ranking.macro_Recall@50": 0.014283522525913292,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 103,
+            "ranking.pair_Hits@10": 0.001276120593396076,
+            "ranking.pair_Hits@50": 0.006061572818631361,
+            "ranking.pair_MRR": 0.0014802102361158092,
+            "sampling_counts.test.negative_draws": 62681,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51196,
+            "sampling_counts.train.negative_draws": 50135,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42679,
+            "sampling_counts.valid.negative_draws": 62664,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51532
+          }
+        }
+      ],
+      "n_runs": 7,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        8
+      ],
+      "summary": {
+        "binary_logits.AUPRC": {
+          "mean": 0.19489097858534488,
+          "sample_sd": 0.057673871013181326
+        },
+        "binary_logits.AUROC": {
+          "mean": 0.6878264349777816,
+          "sample_sd": 0.07301511198979159
+        },
+        "head_tail_binary_logits.head.AUPRC": {
+          "mean": 0.1947716313500501,
+          "sample_sd": 0.05786141987932633
+        },
+        "head_tail_binary_logits.head.AUROC": {
+          "mean": 0.6881328876049867,
+          "sample_sd": 0.07319408070028306
+        },
+        "head_tail_binary_logits.tail.AUPRC": {
+          "mean": 0.2583657581429551,
+          "sample_sd": 0.10735615778977473
+        },
+        "head_tail_binary_logits.tail.AUROC": {
+          "mean": 0.6402949328270799,
+          "sample_sd": 0.0790419988236441
+        },
+        "head_tail_counts.head.n_phenotypes": {
+          "mean": 79,
+          "sample_sd": 1.4142135623730951
+        },
+        "head_tail_counts.head.n_test_negatives": {
+          "mean": 62176.142857142855,
+          "sample_sd": 92.6542471978998
+        },
+        "head_tail_counts.head.n_test_positives": {
+          "mean": 6218.714285714285,
+          "sample_sd": 9.322272357358043
+        },
+        "head_tail_counts.head.prevalence": {
+          "mean": 0.0909237136429292,
+          "sample_sd": 2.5258343879957337e-05
+        },
+        "head_tail_counts.tail.n_phenotypes": {
+          "mean": 28,
+          "sample_sd": 4.08248290463863
+        },
+        "head_tail_counts.tail.n_test_negatives": {
+          "mean": 506.57142857142856,
+          "sample_sd": 95.20654239224169
+        },
+        "head_tail_counts.tail.n_test_positives": {
+          "mean": 50.285714285714285,
+          "sample_sd": 9.322272357358043
+        },
+        "head_tail_counts.tail.prevalence": {
+          "mean": 0.09040622806887388,
+          "sample_sd": 0.0030400629585481615
+        },
+        "macro_binary_logits.macro_AUPRC": {
+          "mean": 0.3535660771931973,
+          "sample_sd": 0.050114764078046006
+        },
+        "macro_binary_logits.macro_AUROC": {
+          "mean": 0.6667979661383334,
+          "sample_sd": 0.058886559219436294
+        },
+        "macro_binary_logits.n_pairs": {
+          "mean": 68951.71428571429,
+          "sample_sd": 2.811540841738193
+        },
+        "macro_binary_logits.n_phenotypes": {
+          "mean": 107,
+          "sample_sd": 3.5118845842842465
+        },
+        "ranking.macro_MRR_first": {
+          "mean": 0.06636009541345317,
+          "sample_sd": 0.027779078959184016
+        },
+        "ranking.macro_NDCG@10": {
+          "mean": 0.029289460530915235,
+          "sample_sd": 0.016797675942588183
+        },
+        "ranking.macro_NDCG@50": {
+          "mean": 0.053851878754523234,
+          "sample_sd": 0.019809908356648323
+        },
+        "ranking.macro_Recall@10": {
+          "mean": 0.02419419663197067,
+          "sample_sd": 0.01682816916337098
+        },
+        "ranking.macro_Recall@50": {
+          "mean": 0.09221907515898109,
+          "sample_sd": 0.040438063346745164
+        },
+        "ranking.n_test_pairs": {
+          "mean": 6269,
+          "sample_sd": 0.0
+        },
+        "ranking.n_test_phenotypes": {
+          "mean": 107,
+          "sample_sd": 3.5118845842842465
+        },
+        "ranking.pair_Hits@10": {
+          "mean": 0.0042157555317548934,
+          "sample_sd": 0.0021318940370819955
+        },
+        "ranking.pair_Hits@50": {
+          "mean": 0.018982293826766628,
+          "sample_sd": 0.006406471726917595
+        },
+        "ranking.pair_MRR": {
+          "mean": 0.0026331235694278623,
+          "sample_sd": 0.0006619742021354831
+        },
+        "sampling_counts.test.negative_draws": {
+          "mean": 62682.71428571428,
+          "sample_sd": 2.811540841738193
+        },
+        "sampling_counts.test.positive_pairs": {
+          "mean": 6269,
+          "sample_sd": 0.0
+        },
+        "sampling_counts.test.unique_negative_pairs": {
+          "mean": 51458.57142857143,
+          "sample_sd": 177.07141416469716
+        },
+        "sampling_counts.train.negative_draws": {
+          "mean": 50133.71428571428,
+          "sample_sd": 4.820590756130958
+        },
+        "sampling_counts.train.positive_pairs": {
+          "mean": 50140,
+          "sample_sd": 0.0
+        },
+        "sampling_counts.train.unique_negative_pairs": {
+          "mean": 42657.857142857145,
+          "sample_sd": 59.521504717282845
+        },
+        "sampling_counts.valid.negative_draws": {
+          "mean": 62661.857142857145,
+          "sample_sd": 2.6095064302514777
+        },
+        "sampling_counts.valid.positive_pairs": {
+          "mean": 6267,
+          "sample_sd": 0.0
+        },
+        "sampling_counts.valid.unique_negative_pairs": {
+          "mean": 51569.71428571428,
+          "sample_sd": 106.00741213977176
+        }
+      }
+    },
+    {
+      "model": "hignn_uniformtask",
+      "protocol": {
+        "code": {
+          "src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "src/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "src/data/build_graph.py": "7cd05d5488e13239ededf881621bd2d789b3d7c0b2e84b6612709a579686d024",
+          "src/data/loaders.py": "d563abe1e3bdf9d2c69b4ce98f5051b7885fdc5732ea2de5b28b16f207b6cc25",
+          "src/data/splits.py": "0f7a10ef8707eb6624b63956c471ba3853985faba15da6fc25cae76477610508",
+          "src/evaluate.py": "f56e46b181ed3efd4f257cdb95723bd8e8dc0e757f683ad60847155debb3681a",
+          "src/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "src/models/baselines.py": "cf6ae163e57b9496648bffcdadbe369b0cc9a13b6999db95fe801722bd0cc473",
+          "src/models/hignn.py": "972feca27a9f5867613d7cb77fce6733d45f737763803580907cc012c4508ebe",
+          "src/train.py": "5cf0f45e4ae6df4d1ee0a1486943f6838b996d3c6b14343e4f2954aae76c84fd"
+        },
+        "graph": "7a717d2525caa1aaaf8313d2d932e001db80388da7bd7bf79f4b70b8aa0ee437",
+        "protocol": {
+          "device": "cuda:0",
+          "epochs": 150,
+          "lr": 0.005,
+          "metrics": {
+            "binary": "pooled logits on original sampled negatives (multiplicity retained)",
+            "head_tail_counts": "original negative draws; head if training positives >=20",
+            "legacy": "sigmoid; training-only ranking filter; historical NDCG@10 is untruncated DRS",
+            "macro_binary": "equal phenotype weights; original negative draws; both classes required",
+            "negative_duplicates": "saved and evaluated unchanged; sampled multiplicity retained",
+            "standard_ranking": "FP32 logits; remove train+validation; gene-index tie break; K=10,50"
+          },
+          "model_config": {
+            "dropout": 0.2,
+            "hidden": 64,
+            "layers": 2,
+            "name": "hignn_uniformtask",
+            "task_pooling": "uniform"
+          },
+          "numeric_policy": {
+            "CUBLAS_WORKSPACE_CONFIG": null,
+            "autocast": false,
+            "cudnn_allow_tf32": true,
+            "cudnn_benchmark": false,
+            "cudnn_deterministic": false,
+            "deterministic_algorithms": false,
+            "deterministic_warn_only": false,
+            "dtype": "float32",
+            "float32_matmul_precision": "highest",
+            "matmul_allow_tf32": false
+          },
+          "split": {
+            "neg_ratio": 1,
+            "ratios": [
+              0.8,
+              0.1,
+              0.1
+            ],
+            "seeded_fresh_split": true
+          },
+          "wd": 0.0005
+        },
+        "runner": {
+          "scripts/run_enhanced.py": "229140c9686ef9f8c87b4d27ce8786479c2a52e2b4450fe82047d650ebbf231b",
+          "scripts/verify_run.py": "1b8ec10a03f8dcc8cfe07c9ead6dfd82c77bfe1d3fd9923a27ee13796d3c5925"
+        }
+      },
+      "rows": [
+        {
+          "run_id": "20261013T112635652528Z_hignn_uniformtask_seed0_29fbf7e1a33a43aebdf18b2b1270d641",
+          "seed": 0,
+          "metrics": {
+            "binary_logits.AUPRC": 0.26303486841020357,
+            "binary_logits.AUROC": 0.7747786756022186,
+            "head_tail_binary_logits.head.AUPRC": 0.2627591974815187,
+            "head_tail_binary_logits.head.AUROC": 0.7747175272341869,
+            "head_tail_binary_logits.tail.AUPRC": 0.44299989302133025,
+            "head_tail_binary_logits.tail.AUROC": 0.7970714187042409,
+            "head_tail_counts.head.n_phenotypes": 81,
+            "head_tail_counts.head.n_test_negatives": 62298,
+            "head_tail_counts.head.n_test_positives": 6231,
+            "head_tail_counts.head.prevalence": 0.09092500984984458,
+            "head_tail_counts.tail.n_phenotypes": 23,
+            "head_tail_counts.tail.n_test_negatives": 381,
+            "head_tail_counts.tail.n_test_positives": 38,
+            "head_tail_counts.tail.prevalence": 0.09069212410501193,
+            "macro_binary_logits.macro_AUPRC": 0.41745881540436575,
+            "macro_binary_logits.macro_AUROC": 0.7490715646603044,
+            "macro_binary_logits.n_pairs": 68948,
+            "macro_binary_logits.n_phenotypes": 104,
+            "ranking.macro_MRR_first": 0.12017824144931619,
+            "ranking.macro_NDCG@10": 0.05867095359939046,
+            "ranking.macro_NDCG@50": 0.06560695716810148,
+            "ranking.macro_Recall@10": 0.060127322342310954,
+            "ranking.macro_Recall@50": 0.0939362147168756,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 104,
+            "ranking.pair_Hits@10": 0.007497208486201946,
+            "ranking.pair_Hits@50": 0.01930132397511565,
+            "ranking.pair_MRR": 0.003561148224502785,
+            "sampling_counts.test.negative_draws": 62679,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51558,
+            "sampling_counts.train.negative_draws": 50135,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42702,
+            "sampling_counts.valid.negative_draws": 62664,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51571
+          }
+        },
+        {
+          "run_id": "20261013T112736723695Z_hignn_uniformtask_seed1_ac3b807717244aea9d60a24548205864",
+          "seed": 1,
+          "metrics": {
+            "binary_logits.AUPRC": 0.34112903293950486,
+            "binary_logits.AUROC": 0.7994878594772639,
+            "head_tail_binary_logits.head.AUPRC": 0.34055782144558705,
+            "head_tail_binary_logits.head.AUROC": 0.7990880077377831,
+            "head_tail_binary_logits.tail.AUPRC": 0.542025148474771,
+            "head_tail_binary_logits.tail.AUROC": 0.8610874301411385,
+            "head_tail_counts.head.n_phenotypes": 77,
+            "head_tail_counts.head.n_test_negatives": 62224,
+            "head_tail_counts.head.n_test_positives": 6223,
+            "head_tail_counts.head.prevalence": 0.0909170599149707,
+            "head_tail_counts.tail.n_phenotypes": 28,
+            "head_tail_counts.tail.n_test_negatives": 459,
+            "head_tail_counts.tail.n_test_positives": 46,
+            "head_tail_counts.tail.prevalence": 0.09108910891089109,
+            "macro_binary_logits.macro_AUPRC": 0.6047331561695526,
+            "macro_binary_logits.macro_AUROC": 0.842748274380689,
+            "macro_binary_logits.n_pairs": 68952,
+            "macro_binary_logits.n_phenotypes": 105,
+            "ranking.macro_MRR_first": 0.14377937665246973,
+            "ranking.macro_NDCG@10": 0.05668189482732781,
+            "ranking.macro_NDCG@50": 0.06997241293829895,
+            "ranking.macro_Recall@10": 0.021649347016273465,
+            "ranking.macro_Recall@50": 0.07025379545043281,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 105,
+            "ranking.pair_Hits@10": 0.008135268782899984,
+            "ranking.pair_Hits@50": 0.03046737916733131,
+            "ranking.pair_MRR": 0.005189277657043115,
+            "sampling_counts.test.negative_draws": 62683,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51555,
+            "sampling_counts.train.negative_draws": 50140,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42747,
+            "sampling_counts.valid.negative_draws": 62657,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51563
+          }
+        },
+        {
+          "run_id": "20261013T112837752908Z_hignn_uniformtask_seed2_1b19d58bdbd74c8080ac717abe04effe",
+          "seed": 2,
+          "metrics": {
+            "binary_logits.AUPRC": 0.2564057898835499,
+            "binary_logits.AUROC": 0.784855707973267,
+            "head_tail_binary_logits.head.AUPRC": 0.2563384760900445,
+            "head_tail_binary_logits.head.AUROC": 0.7848644870023486,
+            "head_tail_binary_logits.tail.AUPRC": 0.2789309028856917,
+            "head_tail_binary_logits.tail.AUROC": 0.7824132231404959,
+            "head_tail_counts.head.n_phenotypes": 80,
+            "head_tail_counts.head.n_test_negatives": 62134,
+            "head_tail_counts.head.n_test_positives": 6214,
+            "head_tail_counts.head.prevalence": 0.09091707145783344,
+            "head_tail_counts.tail.n_phenotypes": 31,
+            "head_tail_counts.tail.n_test_negatives": 550,
+            "head_tail_counts.tail.n_test_positives": 55,
+            "head_tail_counts.tail.prevalence": 0.09090909090909091,
+            "macro_binary_logits.macro_AUPRC": 0.3760574864019612,
+            "macro_binary_logits.macro_AUROC": 0.7756066174610831,
+            "macro_binary_logits.n_pairs": 68953,
+            "macro_binary_logits.n_phenotypes": 111,
+            "ranking.macro_MRR_first": 0.06614854705290568,
+            "ranking.macro_NDCG@10": 0.02072528972602247,
+            "ranking.macro_NDCG@50": 0.04976485511676068,
+            "ranking.macro_Recall@10": 0.014968806269408167,
+            "ranking.macro_Recall@50": 0.09694468868805903,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 111,
+            "ranking.pair_Hits@10": 0.002552241186792152,
+            "ranking.pair_Hits@50": 0.016589567714148986,
+            "ranking.pair_MRR": 0.002391416718404049,
+            "sampling_counts.test.negative_draws": 62684,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51246,
+            "sampling_counts.train.negative_draws": 50133,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42663,
+            "sampling_counts.valid.negative_draws": 62662,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51695
+          }
+        },
+        {
+          "run_id": "20261013T112938896533Z_hignn_uniformtask_seed3_bf53fb2d570f4cf7bbd03bc45068868c",
+          "seed": 3,
+          "metrics": {
+            "binary_logits.AUPRC": 0.2681257771432735,
+            "binary_logits.AUROC": 0.7834473233278937,
+            "head_tail_binary_logits.head.AUPRC": 0.26843766473360425,
+            "head_tail_binary_logits.head.AUROC": 0.7838764856196294,
+            "head_tail_binary_logits.tail.AUPRC": 0.21969079388942592,
+            "head_tail_binary_logits.tail.AUROC": 0.7059376837154615,
+            "head_tail_counts.head.n_phenotypes": 80,
+            "head_tail_counts.head.n_test_negatives": 62275,
+            "head_tail_counts.head.n_test_positives": 6227,
+            "head_tail_counts.head.prevalence": 0.09090245540276197,
+            "head_tail_counts.tail.n_phenotypes": 25,
+            "head_tail_counts.tail.n_test_negatives": 405,
+            "head_tail_counts.tail.n_test_positives": 42,
+            "head_tail_counts.tail.prevalence": 0.09395973154362416,
+            "macro_binary_logits.macro_AUPRC": 0.314911279249276,
+            "macro_binary_logits.macro_AUROC": 0.719502914436067,
+            "macro_binary_logits.n_pairs": 68949,
+            "macro_binary_logits.n_phenotypes": 105,
+            "ranking.macro_MRR_first": 0.04731226722821702,
+            "ranking.macro_NDCG@10": 0.015791696793551177,
+            "ranking.macro_NDCG@50": 0.021800121439289576,
+            "ranking.macro_Recall@10": 0.0031466810798011107,
+            "ranking.macro_Recall@50": 0.032462229278245595,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 105,
+            "ranking.pair_Hits@10": 0.002552241186792152,
+            "ranking.pair_Hits@50": 0.011325570266390174,
+            "ranking.pair_MRR": 0.0020910055879270785,
+            "sampling_counts.test.negative_draws": 62680,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51421,
+            "sampling_counts.train.negative_draws": 50134,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42641,
+            "sampling_counts.valid.negative_draws": 62662,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51373
+          }
+        },
+        {
+          "run_id": "20261013T113040000950Z_hignn_uniformtask_seed4_816e8f17577242e4b427fbb1bad56fd9",
+          "seed": 4,
+          "metrics": {
+            "binary_logits.AUPRC": 0.31405743602943015,
+            "binary_logits.AUROC": 0.7947798861196831,
+            "head_tail_binary_logits.head.AUPRC": 0.3126601350370088,
+            "head_tail_binary_logits.head.AUROC": 0.7939857817991429,
+            "head_tail_binary_logits.tail.AUPRC": 0.6617146915968527,
+            "head_tail_binary_logits.tail.AUROC": 0.882435465768799,
+            "head_tail_counts.head.n_phenotypes": 78,
+            "head_tail_counts.head.n_test_negatives": 62092,
+            "head_tail_counts.head.n_test_positives": 6209,
+            "head_tail_counts.head.prevalence": 0.09090642889562378,
+            "head_tail_counts.tail.n_phenotypes": 32,
+            "head_tail_counts.tail.n_test_negatives": 594,
+            "head_tail_counts.tail.n_test_positives": 60,
+            "head_tail_counts.tail.prevalence": 0.09174311926605505,
+            "macro_binary_logits.macro_AUPRC": 0.5676984711466275,
+            "macro_binary_logits.macro_AUROC": 0.8197249161885312,
+            "macro_binary_logits.n_pairs": 68955,
+            "macro_binary_logits.n_phenotypes": 110,
+            "ranking.macro_MRR_first": 0.07417320063755638,
+            "ranking.macro_NDCG@10": 0.04927883568468209,
+            "ranking.macro_NDCG@50": 0.06974191488311085,
+            "ranking.macro_Recall@10": 0.06711420180163288,
+            "ranking.macro_Recall@50": 0.13264130078628122,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 110,
+            "ranking.pair_Hits@10": 0.007656723560376456,
+            "ranking.pair_Hits@50": 0.025681926942096027,
+            "ranking.pair_MRR": 0.003347681412801311,
+            "sampling_counts.test.negative_draws": 62686,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51577,
+            "sampling_counts.train.negative_draws": 50135,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42572,
+            "sampling_counts.valid.negative_draws": 62660,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51577
+          }
+        },
+        {
+          "run_id": "20261013T113134107148Z_hignn_uniformtask_seed5_d3b8c2a29ab64661972c6f06e1077b2b",
+          "seed": 5,
+          "metrics": {
+            "binary_logits.AUPRC": 0.2717301032211164,
+            "binary_logits.AUROC": 0.7851981510888795,
+            "head_tail_binary_logits.head.AUPRC": 0.27139038049873826,
+            "head_tail_binary_logits.head.AUROC": 0.7852417193338532,
+            "head_tail_binary_logits.tail.AUPRC": 0.4137483285388601,
+            "head_tail_binary_logits.tail.AUROC": 0.7802984519548138,
+            "head_tail_counts.head.n_phenotypes": 78,
+            "head_tail_counts.head.n_test_negatives": 62245,
+            "head_tail_counts.head.n_test_positives": 6220,
+            "head_tail_counts.head.prevalence": 0.09084933907836121,
+            "head_tail_counts.tail.n_phenotypes": 28,
+            "head_tail_counts.tail.n_test_negatives": 439,
+            "head_tail_counts.tail.n_test_positives": 49,
+            "head_tail_counts.tail.prevalence": 0.10040983606557377,
+            "macro_binary_logits.macro_AUPRC": 0.4630908480008509,
+            "macro_binary_logits.macro_AUROC": 0.7766633229001723,
+            "macro_binary_logits.n_pairs": 68953,
+            "macro_binary_logits.n_phenotypes": 106,
+            "ranking.macro_MRR_first": 0.07127153502241312,
+            "ranking.macro_NDCG@10": 0.025886173819763502,
+            "ranking.macro_NDCG@50": 0.06894183826590858,
+            "ranking.macro_Recall@10": 0.018930983052792155,
+            "ranking.macro_Recall@50": 0.12843909702690723,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 106,
+            "ranking.pair_Hits@10": 0.002233211038443133,
+            "ranking.pair_Hits@50": 0.02249162545860584,
+            "ranking.pair_MRR": 0.0026532910648598283,
+            "sampling_counts.test.negative_draws": 62684,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51312,
+            "sampling_counts.train.negative_draws": 50134,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42597,
+            "sampling_counts.valid.negative_draws": 62661,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51307
+          }
+        },
+        {
+          "run_id": "20261013T113228487102Z_hignn_uniformtask_seed6_51afabb2f94648b8b74a20568705b1d4",
+          "seed": 6,
+          "metrics": {
+            "binary_logits.AUPRC": 0.2532066821466546,
+            "binary_logits.AUROC": 0.7713281509671466,
+            "head_tail_binary_logits.head.AUPRC": 0.2535659458210253,
+            "head_tail_binary_logits.head.AUROC": 0.7718677165320307,
+            "head_tail_binary_logits.tail.AUPRC": 0.29572411876719457,
+            "head_tail_binary_logits.tail.AUROC": 0.7340894296730258,
+            "head_tail_counts.head.n_phenotypes": 78,
+            "head_tail_counts.head.n_test_negatives": 62052,
+            "head_tail_counts.head.n_test_positives": 6206,
+            "head_tail_counts.head.prevalence": 0.09091974567083712,
+            "head_tail_counts.tail.n_phenotypes": 33,
+            "head_tail_counts.tail.n_test_negatives": 634,
+            "head_tail_counts.tail.n_test_positives": 63,
+            "head_tail_counts.tail.prevalence": 0.09038737446197992,
+            "macro_binary_logits.macro_AUPRC": 0.3564608740013314,
+            "macro_binary_logits.macro_AUROC": 0.7447354919421829,
+            "macro_binary_logits.n_pairs": 68955,
+            "macro_binary_logits.n_phenotypes": 111,
+            "ranking.macro_MRR_first": 0.029920014497388812,
+            "ranking.macro_NDCG@10": 0.007524346743436286,
+            "ranking.macro_NDCG@50": 0.013600507757074547,
+            "ranking.macro_Recall@10": 0.00045439331664149057,
+            "ranking.macro_Recall@50": 0.013303515392460087,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 111,
+            "ranking.pair_Hits@10": 0.001276120593396076,
+            "ranking.pair_Hits@50": 0.009889934598819589,
+            "ranking.pair_MRR": 0.0016717192885914763,
+            "sampling_counts.test.negative_draws": 62686,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51657,
+            "sampling_counts.train.negative_draws": 50124,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42601,
+            "sampling_counts.valid.negative_draws": 62664,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51677
+          }
+        },
+        {
+          "run_id": "20261013T113322379105Z_hignn_uniformtask_seed7_e3a2d92544f642f0acaec5ae3a727bc4",
+          "seed": 7,
+          "metrics": {
+            "binary_logits.AUPRC": 0.30342019904237477,
+            "binary_logits.AUROC": 0.785018345200612,
+            "head_tail_binary_logits.head.AUPRC": 0.30389162913291123,
+            "head_tail_binary_logits.head.AUROC": 0.7857468006474844,
+            "head_tail_binary_logits.tail.AUPRC": 0.3436747649135855,
+            "head_tail_binary_logits.tail.AUROC": 0.6938649862378676,
+            "head_tail_counts.head.n_phenotypes": 78,
+            "head_tail_counts.head.n_test_negatives": 62148,
+            "head_tail_counts.head.n_test_positives": 6217,
+            "head_tail_counts.head.prevalence": 0.09093834564470124,
+            "head_tail_counts.tail.n_phenotypes": 27,
+            "head_tail_counts.tail.n_test_negatives": 531,
+            "head_tail_counts.tail.n_test_positives": 52,
+            "head_tail_counts.tail.prevalence": 0.08919382504288165,
+            "macro_binary_logits.macro_AUPRC": 0.42386216298367696,
+            "macro_binary_logits.macro_AUROC": 0.7219941016926336,
+            "macro_binary_logits.n_pairs": 68948,
+            "macro_binary_logits.n_phenotypes": 105,
+            "ranking.macro_MRR_first": 0.15172544680590772,
+            "ranking.macro_NDCG@10": 0.07235804439746546,
+            "ranking.macro_NDCG@50": 0.09207069078718237,
+            "ranking.macro_Recall@10": 0.060848506253963354,
+            "ranking.macro_Recall@50": 0.1351368637929492,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 105,
+            "ranking.pair_Hits@10": 0.00973041952464508,
+            "ranking.pair_Hits@50": 0.02775562290636465,
+            "ranking.pair_MRR": 0.004985024163153707,
+            "sampling_counts.test.negative_draws": 62679,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51322,
+            "sampling_counts.train.negative_draws": 50131,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42578,
+            "sampling_counts.valid.negative_draws": 62661,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51298
+          }
+        },
+        {
+          "run_id": "20261013T113416074054Z_hignn_uniformtask_seed8_c918dd8e14e144f4b1e26d8311f45586",
+          "seed": 8,
+          "metrics": {
+            "binary_logits.AUPRC": 0.29516415601272383,
+            "binary_logits.AUROC": 0.7889461858448363,
+            "head_tail_binary_logits.head.AUPRC": 0.2950713293692924,
+            "head_tail_binary_logits.head.AUROC": 0.7891445613609372,
+            "head_tail_binary_logits.tail.AUPRC": 0.3986582523516029,
+            "head_tail_binary_logits.tail.AUROC": 0.7726657106437221,
+            "head_tail_counts.head.n_phenotypes": 79,
+            "head_tail_counts.head.n_test_negatives": 62158,
+            "head_tail_counts.head.n_test_positives": 6221,
+            "head_tail_counts.head.prevalence": 0.09097822430863277,
+            "head_tail_counts.tail.n_phenotypes": 24,
+            "head_tail_counts.tail.n_test_negatives": 523,
+            "head_tail_counts.tail.n_test_positives": 48,
+            "head_tail_counts.tail.prevalence": 0.0840630472854641,
+            "macro_binary_logits.macro_AUPRC": 0.4634262073260742,
+            "macro_binary_logits.macro_AUROC": 0.7707327398683923,
+            "macro_binary_logits.n_pairs": 68950,
+            "macro_binary_logits.n_phenotypes": 103,
+            "ranking.macro_MRR_first": 0.10839748954331237,
+            "ranking.macro_NDCG@10": 0.049763265504522786,
+            "ranking.macro_NDCG@50": 0.07307602980094421,
+            "ranking.macro_Recall@10": 0.03814037122136448,
+            "ranking.macro_Recall@50": 0.11571666190121223,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 103,
+            "ranking.pair_Hits@10": 0.0065401180411548895,
+            "ranking.pair_Hits@50": 0.024565321422874462,
+            "ranking.pair_MRR": 0.003689180474574653,
+            "sampling_counts.test.negative_draws": 62681,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51196,
+            "sampling_counts.train.negative_draws": 50135,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42679,
+            "sampling_counts.valid.negative_draws": 62664,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51532
+          }
+        },
+        {
+          "run_id": "20261013T113509692384Z_hignn_uniformtask_seed9_f1d02fd844b04ab396c0cfc423af110a",
+          "seed": 9,
+          "metrics": {
+            "binary_logits.AUPRC": 0.2817734531410368,
+            "binary_logits.AUROC": 0.7796002446681611,
+            "head_tail_binary_logits.head.AUPRC": 0.2818456884971393,
+            "head_tail_binary_logits.head.AUROC": 0.780049099931068,
+            "head_tail_binary_logits.tail.AUPRC": 0.37336325171794443,
+            "head_tail_binary_logits.tail.AUROC": 0.7308315715292459,
+            "head_tail_counts.head.n_phenotypes": 76,
+            "head_tail_counts.head.n_test_negatives": 62166,
+            "head_tail_counts.head.n_test_positives": 6214,
+            "head_tail_counts.head.prevalence": 0.0908745247148289,
+            "head_tail_counts.tail.n_phenotypes": 32,
+            "head_tail_counts.tail.n_test_negatives": 516,
+            "head_tail_counts.tail.n_test_positives": 55,
+            "head_tail_counts.tail.prevalence": 0.09632224168126094,
+            "macro_binary_logits.macro_AUPRC": 0.4390325854352541,
+            "macro_binary_logits.macro_AUROC": 0.7373166993985727,
+            "macro_binary_logits.n_pairs": 68951,
+            "macro_binary_logits.n_phenotypes": 108,
+            "ranking.macro_MRR_first": 0.07490129081500817,
+            "ranking.macro_NDCG@10": 0.027046159520605014,
+            "ranking.macro_NDCG@50": 0.04265241440614571,
+            "ranking.macro_Recall@10": 0.013623652721897531,
+            "ranking.macro_Recall@50": 0.06404744924074193,
+            "ranking.n_test_pairs": 6269,
+            "ranking.n_test_phenotypes": 108,
+            "ranking.pair_Hits@10": 0.0041473919285372465,
+            "ranking.pair_Hits@50": 0.017865688307545063,
+            "ranking.pair_MRR": 0.002949381924776946,
+            "sampling_counts.test.negative_draws": 62682,
+            "sampling_counts.test.positive_pairs": 6269,
+            "sampling_counts.test.unique_negative_pairs": 51541,
+            "sampling_counts.train.negative_draws": 50134,
+            "sampling_counts.train.positive_pairs": 50140,
+            "sampling_counts.train.unique_negative_pairs": 42484,
+            "sampling_counts.valid.negative_draws": 62666,
+            "sampling_counts.valid.positive_pairs": 6267,
+            "sampling_counts.valid.unique_negative_pairs": 51532
+          }
+        }
+      ],
+      "n_runs": 10,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "summary": {
+        "binary_logits.AUPRC": {
+          "mean": 0.28480474979698683,
+          "sample_sd": 0.028321932179380345
+        },
+        "binary_logits.AUROC": {
+          "mean": 0.7847440530269961,
+          "sample_sd": 0.008455669041418526
+        },
+        "head_tail_binary_logits.head.AUPRC": {
+          "mean": 0.284651826810687,
+          "sample_sd": 0.028052700523685796
+        },
+        "head_tail_binary_logits.head.AUROC": {
+          "mean": 0.7848582187198464,
+          "sample_sd": 0.00817031837171337
+        },
+        "head_tail_binary_logits.tail.AUPRC": {
+          "mean": 0.3970530146157259,
+          "sample_sd": 0.13018931811034712
+        },
+        "head_tail_binary_logits.tail.AUROC": {
+          "mean": 0.7740695371508811,
+          "sample_sd": 0.061911596517233755
+        },
+        "head_tail_counts.head.n_phenotypes": {
+          "mean": 78.5,
+          "sample_sd": 1.509230856356236
+        },
+        "head_tail_counts.head.n_test_negatives": {
+          "mean": 62179.2,
+          "sample_sd": 79.61825586300334
+        },
+        "head_tail_counts.head.n_test_positives": {
+          "mean": 6218.2,
+          "sample_sd": 7.786027371016764
+        },
+        "head_tail_counts.head.prevalence": {
+          "mean": 0.09091282049383957,
+          "sample_sd": 3.465146881711603e-05
+        },
+        "head_tail_counts.tail.n_phenotypes": {
+          "mean": 28.3,
+          "sample_sd": 3.591656999213594
+        },
+        "head_tail_counts.tail.n_test_negatives": {
+          "mean": 503.2,
+          "sample_sd": 81.32486294690777
+        },
+        "head_tail_counts.tail.n_test_positives": {
+          "mean": 50.8,
+          "sample_sd": 7.786027371016764
+        },
+        "head_tail_counts.tail.prevalence": {
+          "mean": 0.09187694992718336,
+          "sample_sd": 0.004350772345452
+        },
+        "macro_binary_logits.macro_AUPRC": {
+          "mean": 0.4426731886118971,
+          "sample_sd": 0.08940452182616845
+        },
+        "macro_binary_logits.macro_AUROC": {
+          "mean": 0.7658096642928628,
+          "sample_sd": 0.04036593084273468
+        },
+        "macro_binary_logits.n_pairs": {
+          "mean": 68951.4,
+          "sample_sd": 2.6331223544175333
+        },
+        "macro_binary_logits.n_phenotypes": {
+          "mean": 106.8,
+          "sample_sd": 2.973961069759395
+        },
+        "ranking.macro_MRR_first": {
+          "mean": 0.08878074097044952,
+          "sample_sd": 0.0405058748572771
+        },
+        "ranking.macro_NDCG@10": {
+          "mean": 0.038372666061676705,
+          "sample_sd": 0.021623278802174555
+        },
+        "ranking.macro_NDCG@50": {
+          "mean": 0.056722774256281694,
+          "sample_sd": 0.024530476649808022
+        },
+        "ranking.macro_Recall@10": {
+          "mean": 0.02990042650760856,
+          "sample_sd": 0.02490724581700368
+        },
+        "ranking.macro_Recall@50": {
+          "mean": 0.0882881816274165,
+          "sample_sd": 0.04253800973125599
+        },
+        "ranking.n_test_pairs": {
+          "mean": 6269,
+          "sample_sd": 0.0
+        },
+        "ranking.n_test_phenotypes": {
+          "mean": 106.8,
+          "sample_sd": 2.973961069759395
+        },
+        "ranking.pair_Hits@10": {
+          "mean": 0.005232094432923912,
+          "sample_sd": 0.003010475798021441
+        },
+        "ranking.pair_Hits@50": {
+          "mean": 0.020593396075929176,
+          "sample_sd": 0.006828557776383976
+        },
+        "ranking.pair_MRR": {
+          "mean": 0.003252912651663495,
+          "sample_sd": 0.001158931130672948
+        },
+        "sampling_counts.test.negative_draws": {
+          "mean": 62682.4,
+          "sample_sd": 2.6331223544175333
+        },
+        "sampling_counts.test.positive_pairs": {
+          "mean": 6269,
+          "sample_sd": 0.0
+        },
+        "sampling_counts.test.unique_negative_pairs": {
+          "mean": 51438.5,
+          "sample_sd": 160.21738704370105
+        },
+        "sampling_counts.train.negative_draws": {
+          "mean": 50133.5,
+          "sample_sd": 4.034572812303401
+        },
+        "sampling_counts.train.positive_pairs": {
+          "mean": 50140,
+          "sample_sd": 0.0
+        },
+        "sampling_counts.train.unique_negative_pairs": {
+          "mean": 42626.4,
+          "sample_sd": 75.76894702537005
+        },
+        "sampling_counts.valid.negative_draws": {
+          "mean": 62662.1,
+          "sample_sd": 2.5582111805799856
+        },
+        "sampling_counts.valid.positive_pairs": {
+          "mean": 6267,
+          "sample_sd": 0.0
+        },
+        "sampling_counts.valid.unique_negative_pairs": {
+          "mean": 51512.5,
+          "sample_sd": 141.0124108013192
+        }
+      }
+    }
+  ]
+}

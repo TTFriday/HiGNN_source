@@ -1,0 +1,98 @@
+{
+  "n_failed": 3,
+  "runs": [
+    {
+      "run_id": "20261013T112217154261Z_han_seed5_cb29effa222c480e9b9c9616f47be803",
+      "original_verification_status": "failed",
+      "original_error": "ValueError: replayed logits are not allclose",
+      "tolerance": {
+        "logits_atol": 0.0001,
+        "logits_rtol": 0.0001,
+        "metrics_atol": 1e-06
+      },
+      "saved_logit_abs_max": 4332.40380859375,
+      "saved_logit_abs_median": 0.7863211631774902,
+      "replays": [
+        {
+          "logits_max_absolute_error": 0.00927734375,
+          "n_elements_outside_tolerance": 45,
+          "n_elements": 5796552,
+          "max_abs_saved_logit_among_violations": 37.85987091064453,
+          "metrics_max_absolute_error": 3.0547013030179926e-08,
+          "self_difference_from_previous_replay": null
+        },
+        {
+          "logits_max_absolute_error": 0.00927734375,
+          "n_elements_outside_tolerance": 38,
+          "n_elements": 5796552,
+          "max_abs_saved_logit_among_violations": 37.85987091064453,
+          "metrics_max_absolute_error": 1.5980347323196753e-08,
+          "self_difference_from_previous_replay": 0.00244140625
+        }
+      ],
+      "interpretation": "diagnostic only; the run remains FAILED under the pre-specified rule"
+    },
+    {
+      "run_id": "20261013T112400491690Z_han_seed7_abc36bfc30a04f2a95d314fa01318fbd",
+      "original_verification_status": "failed",
+      "original_error": "ValueError: replayed logits are not allclose",
+      "tolerance": {
+        "logits_atol": 0.0001,
+        "logits_rtol": 0.0001,
+        "metrics_atol": 1e-06
+      },
+      "saved_logit_abs_max": 222227.046875,
+      "saved_logit_abs_median": 0.6558079123497009,
+      "replays": [
+        {
+          "logits_max_absolute_error": 0.078125,
+          "n_elements_outside_tolerance": 7,
+          "n_elements": 5796552,
+          "max_abs_saved_logit_among_violations": 45.18471908569336,
+          "metrics_max_absolute_error": 8.604317772165082e-08,
+          "self_difference_from_previous_replay": null
+        },
+        {
+          "logits_max_absolute_error": 0.046875,
+          "n_elements_outside_tolerance": 5,
+          "n_elements": 5796552,
+          "max_abs_saved_logit_among_violations": 14.480185508728027,
+          "metrics_max_absolute_error": 1.1310490433125153e-08,
+          "self_difference_from_previous_replay": 0.0390625
+        }
+      ],
+      "interpretation": "diagnostic only; the run remains FAILED under the pre-specified rule"
+    },
+    {
+      "run_id": "20261013T112543926852Z_han_seed9_9eee4ee870df48e09915771f3b7aa31f",
+      "original_verification_status": "failed",
+      "original_error": "ValueError: replayed logits are not allclose",
+      "tolerance": {
+        "logits_atol": 0.0001,
+        "logits_rtol": 0.0001,
+        "metrics_atol": 1e-06
+      },
+      "saved_logit_abs_max": 304.6076354980469,
+      "saved_logit_abs_median": 0.05008954554796219,
+      "replays": [
+        {
+          "logits_max_absolute_error": 0.0007748603820800781,
+          "n_elements_outside_tolerance": 12,
+          "n_elements": 5796552,
+          "max_abs_saved_logit_among_violations": 6.057507514953613,
+          "metrics_max_absolute_error": 7.172841792746354e-09,
+          "self_difference_from_previous_replay": null
+        },
+        {
+          "logits_max_absolute_error": 0.0011582374572753906,
+          "n_elements_outside_tolerance": 35,
+          "n_elements": 5796552,
+          "max_abs_saved_logit_among_violations": 7.640161037445068,
+          "metrics_max_absolute_error": 1.2624715439724099e-08,
+          "self_difference_from_previous_replay": 0.0019330978393554688
+        }
+      ],
+      "interpretation": "diagnostic only; the run remains FAILED under the pre-specified rule"
+    }
+  ]
+}

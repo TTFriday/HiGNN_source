@@ -1,0 +1,122 @@
+{
+  "source": "AtMAD",
+  "source_doi": "10.1093/nar/gkaa1042",
+  "download_page": "http://119.3.41.228/atmad/download.php",
+  "audited_at_utc": "2026-10-13T09:31:35.671117+00:00",
+  "original_download_date": null,
+  "repository_summary_label": "June 2020 (website summary, not verified local snapshot)",
+  "redistribution_permission": "Not verified; obtain source files directly from AtMAD",
+  "exact_remote_snapshot_match": "Not established; remote content hashes not compared",
+  "files": [
+    {
+      "filename": "ciseqtl.xls",
+      "source_url": "http://119.3.41.228/atmad/downloads/ciseqtl.xls",
+      "local_present": true,
+      "local_bytes": 2294272,
+      "local_sha256": "3c96650c49daebac91d1226f2b91abd8a702550259864b12da2b27ca9681f428",
+      "http_status": 200,
+      "remote_bytes": 2135040,
+      "remote_last_modified": "Mon, 07 Sep 2020 11:29:38 GMT",
+      "same_byte_length": false
+    },
+    {
+      "filename": "transeqtl.xls",
+      "source_url": "http://119.3.41.228/atmad/downloads/transeqtl.xls",
+      "local_present": true,
+      "local_bytes": 1884160,
+      "local_sha256": "d9156e5ef9fa86d3757cc64eedc4525c3dd9428ebb7d68ab01f9419c9a0191f7",
+      "http_status": 200,
+      "remote_bytes": 1790976,
+      "remote_last_modified": "Mon, 07 Sep 2020 11:29:38 GMT",
+      "same_byte_length": false
+    },
+    {
+      "filename": "environmenteqtl.xlsx",
+      "source_url": "http://119.3.41.228/atmad/downloads/environmenteqtl.xlsx",
+      "local_present": true,
+      "local_bytes": 4244169,
+      "local_sha256": "7ffc942dea380a6b3117aaaec23b8108d7ad7e14438a636601c460629e8debd8",
+      "http_status": 200,
+      "remote_bytes": 4188117,
+      "remote_last_modified": "Mon, 07 Sep 2020 11:29:38 GMT",
+      "same_byte_length": false
+    },
+    {
+      "filename": "gwaseqtl.csv",
+      "source_url": "http://119.3.41.228/atmad/downloads/gwaseqtl.csv",
+      "local_present": true,
+      "local_bytes": 26744695,
+      "local_sha256": "54168a0603d8d1f74d9ab58fdf6d6a3fe37114689db93dab855ab7296ee32757",
+      "http_status": 200,
+      "remote_bytes": 27603367,
+      "remote_last_modified": "Mon, 07 Sep 2020 11:29:38 GMT",
+      "same_byte_length": false
+    },
+    {
+      "filename": "emqtl.csv",
+      "source_url": "http://119.3.41.228/atmad/downloads/emqtl.csv",
+      "local_present": true,
+      "local_bytes": 14607211,
+      "local_sha256": "e8016ad87e0c6fdfc9ee04b8b7359c9451fcbb3bd6fe18afafbaa8a1d0882be2",
+      "http_status": 200,
+      "remote_bytes": 14607391,
+      "remote_last_modified": "Mon, 07 Sep 2020 11:29:38 GMT",
+      "same_byte_length": false
+    },
+    {
+      "filename": "epathway.csv",
+      "source_url": "http://119.3.41.228/atmad/downloads/epathway.csv",
+      "local_present": true,
+      "local_bytes": 10763632,
+      "local_sha256": "7ec30b5228770952f91d1307e8313434cd4d416ae531f0f20e2095c8064d42de",
+      "http_status": 200,
+      "remote_bytes": 11131094,
+      "remote_last_modified": "Mon, 07 Sep 2020 11:37:43 GMT",
+      "same_byte_length": false
+    },
+    {
+      "filename": "phenotypepathway.csv",
+      "source_url": "http://119.3.41.228/atmad/downloads/phenotypepathway.csv",
+      "local_present": true,
+      "local_bytes": 148235,
+      "local_sha256": "3518a7b9612dfa862eaa2ed2834a0c512d67b049f36824ff31bfda5d4ee938a7",
+      "http_status": 200,
+      "remote_bytes": 152700,
+      "remote_last_modified": "Mon, 07 Sep 2020 11:29:38 GMT",
+      "same_byte_length": false
+    },
+    {
+      "filename": "gwas.csv",
+      "source_url": "http://119.3.41.228/atmad/downloads/gwas.csv",
+      "local_present": true,
+      "local_bytes": 10878140,
+      "local_sha256": "b3cd0ecb2f7c193a9517e7e357559343b9cd0665d9c04601cda1a610e2ae8922",
+      "http_status": 200,
+      "remote_bytes": 11148145,
+      "remote_last_modified": "Mon, 07 Sep 2020 11:29:38 GMT",
+      "same_byte_length": false
+    },
+    {
+      "filename": "twas.csv",
+      "source_url": "http://119.3.41.228/atmad/downloads/twas.csv",
+      "local_present": true,
+      "local_bytes": 6828990,
+      "local_sha256": "02a12493b6dc095d96f335c4ae90618130ec7e91b4e6e4baaed44e4a9fb06070",
+      "http_status": 200,
+      "remote_bytes": 7017615,
+      "remote_last_modified": "Mon, 07 Sep 2020 11:29:38 GMT",
+      "same_byte_length": false
+    },
+    {
+      "filename": "ewas.csv",
+      "source_url": "http://119.3.41.228/atmad/downloads/ewas.csv",
+      "local_present": true,
+      "local_bytes": 761716335,
+      "local_sha256": "19d6065ccf7e7962941dd3e048e90ec333e0a36a7ed904eab950384d71aaff3c",
+      "http_status": 200,
+      "remote_bytes": 674010324,
+      "remote_last_modified": "Mon, 07 Sep 2020 11:29:38 GMT",
+      "same_byte_length": false
+    }
+  ]
+}
